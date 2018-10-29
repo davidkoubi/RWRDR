@@ -1,0 +1,19 @@
+{
+  "name": "rwrdr",
+  "version": "1.0.0",
+  "description": "gamification of companies",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "author": "David Koubi",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "edge.js": "^1.1.4",
+    "express": "^4.16.4",
+    "express-edge": "^1.0.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^5.3.7"
+  }
+}

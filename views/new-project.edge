@@ -1,0 +1,51 @@
+@layout('layouts.app')
+
+
+@section('content')
+
+
+<header class="masthead" style="background-color:black">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                        <h1>PROJECT CREATION PAGE</h1>
+                        <form action="/projects/store" method="POST" novalidate>
+                        <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Title</label>
+                            <input type="text" name="title" class="form-control" placeholder="Title" required
+                                data-validation-required-message="Please enter a title">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>Description</label>
+                            <input type="text" name="description" class="form-control" placeholder="Description" required
+                                data-validation-required-message="Enter description">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Content</label>
+                            <textarea rows="5" name="content" class="form-control" placeholder="Content" required
+                                data-validation-required-message="Please enter content "></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div id="success"></div>
+                    <div class="form-group my-4 text-center">
+                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Add Project</button>
+                    </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+@endsection
