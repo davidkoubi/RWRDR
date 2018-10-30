@@ -15,17 +15,22 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 const Project = require('./database/models/Project')
 
-mongoose.connect('mongodb://localhost/test-rwrdr')
+mongoose.connect('mongodb://localhost/rwrdr')
 
 app.get('/', async (req,res)=>{
 
-const projects = await Project.find({})
-    console.log(projects)
+const myProjects = await Project.find({})
+    console.log(myProjects)
     res.render('index', {
-        projects
+        myProjects
     })
 })
 
+app.post('/projects/store',(req, res)=>{
+    console.log(req.body)
+    res.redirect('/')
+
+})
 
 app.get('/about', (req,res)=>{
     res.render('about')
@@ -35,8 +40,8 @@ app.get('/404', (req, res) => {
     res.render('404')
 })
 
-app.get('/post', (req, res) => {
-    res.render('post')
+app.get('/projects', (req, res) => {
+    res.render('projects')
 })
 
 app.get('/contact', (req, res) => {
@@ -46,14 +51,6 @@ app.get('/contact', (req, res) => {
 app.get('/new-project', (req, res) => {
     res.render('new-project')
 })
-
-app.post('/projects/store',(req, res)=>{
-    console.log(req.body)
-    res.redirect('/')
-
-})
-
-
 
 app.listen(3000, ()=>{
     console.log(`Going Smoothly on port ${port}`)

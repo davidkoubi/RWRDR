@@ -14,28 +14,63 @@
                         <form action="/projects/store" method="POST" novalidate>
                         <div class="control-group">
                         <div class="form-group floating-label-form-group controls">
-                            <label>Title</label>
-                            <input type="text" name="title" class="form-control" placeholder="Title" required
-                                data-validation-required-message="Please enter a title">
+                            <label>Name</label>
+                            <input type="text" name="name" class="form-control" placeholder="Name" required
+                                data-validation-required-message="Name of project">
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
                     <div class="control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>Description</label>
-                            <input type="text" name="description" class="form-control" placeholder="Description" required
-                                data-validation-required-message="Enter description">
-                            <p class="help-block text-danger"></p>
-                        </div>
-                    </div>
-                    <div class="control-group">
-                        <div class="form-group floating-label-form-group controls">
                             <label>Content</label>
                             <textarea rows="5" name="content" class="form-control" placeholder="Content" required
                                 data-validation-required-message="Please enter content "></textarea>
                             <p class="help-block text-danger"></p>
                         </div>
                     </div>
+                    
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Client</label>
+                            <input type="text" name="client" class="form-control" placeholder="Client" required
+                                data-validation-required-message="Name of client">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Employees</label>
+                            <input type="text" name="employees" class="form-control" placeholder="Employees" required
+                                data-validation-required-message="Employees">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Cost</label>
+                            <input type="number" name="cost" class="form-control" placeholder="Cost" required
+                                data-validation-required-message="Cost">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                            <label>Status</label>
+                            <select name="status" class="form-control" placeholder="Status" required
+                                data-validation-required-message="Status">
+                                <option value="prospect">prospect</option>
+                                <option value="doing">doing</option>
+                                <option value="finished">finished</option>
+                                <option value="cancelled">cancelled</option>
+                            </select>
+                            
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+
                     <div id="success"></div>
                     <div class="form-group my-4 text-center">
                         <button type="submit" class="btn btn-primary" id="sendMessageButton">Add Project</button>
