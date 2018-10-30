@@ -5,7 +5,7 @@ const ProjectSchema = new mongoose.Schema({
     name:String,
     description:String,
     client:String,
-    employees:JSON,
+    employees:String,
     cost: Number,
     status: String,
     createdAt:{

@@ -1,5 +1,5 @@
 const express = require('express')
-const path= require('path') //allows for the path.resolve method 
+// const path = require('path') //allows for the path.resolve method 
 const expressEdge = require('express-edge')
 const app = express()
 const port = 3000
@@ -15,11 +15,11 @@ app.use(bodyParser.urlencoded({extended:true}))
 
 const Project = require('./database/models/Project')
 
-mongoose.connect('mongodb://localhost/rwrdr')
+mongoose.connect('mongodb://127.0.0.1:27017/rwrdr')
 
 app.get('/', async (req,res)=>{
 
-const myProjects = await Project.find({})
+const myProjects = await Project.find({ })
     console.log(myProjects)
     res.render('index', {
         myProjects
