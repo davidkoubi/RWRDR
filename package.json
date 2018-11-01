@@ -9,10 +9,14 @@
   "author": "David Koubi",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.2",
     "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.1",
     "edge.js": "^1.1.4",
     "express": "^4.16.4",
     "express-edge": "^1.0.0",
+    "express-fileupload": "^1.0.0",
+    "express-session": "^1.15.6",
     "mongo": "^0.1.0",
     "mongoose": "^5.3.7"
   }
