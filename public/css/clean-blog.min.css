@@ -6,7 +6,11 @@
 body {
     font-size: 20px;
     color: #212529;
-    font-family: Lora, 'Times New Roman', serif
+    font-family: 'Open Sans',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif
 }
 
 p {
@@ -206,7 +210,7 @@ header.masthead .overlay {
 }
 
 header.masthead .page-heading,
-header.masthead .post-heading,
+header.masthead .project-heading,
 header.masthead .site-heading {
     padding: 200px 0 150px;
     color: #fff
@@ -215,7 +219,7 @@ header.masthead .site-heading {
 @media only screen and (min-width:768px) {
 
     header.masthead .page-heading,
-    header.masthead .post-heading,
+    header.masthead .project-heading,
     header.masthead .site-heading {
         padding: 200px 0
     }
@@ -250,85 +254,89 @@ header.masthead .site-heading .subheading {
     }
 }
 
-header.masthead .post-heading h1 {
+header.masthead .project-heading h1 {
     font-size: 35px
 }
 
-header.masthead .post-heading .meta,
-header.masthead .post-heading .subheading {
+header.masthead .project-heading .meta,
+header.masthead .project-heading .subheading {
     line-height: 1.1;
     display: block
 }
 
-header.masthead .post-heading .subheading {
+header.masthead .project-heading .subheading {
     font-size: 24px;
     font-weight: 600;
     margin: 10px 0 30px;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
-header.masthead .post-heading .meta {
+header.masthead .project-heading .meta {
     font-size: 20px;
     font-weight: 300;
     font-style: italic;
-    font-family: Lora, 'Times New Roman', serif
+    font-family: 'Open Sans',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif
 }
 
-header.masthead .post-heading .meta a {
+header.masthead .project-heading .meta a {
     color: #fff
 }
 
 @media only screen and (min-width:768px) {
-    header.masthead .post-heading h1 {
+    header.masthead .project-heading h1 {
         font-size: 55px
     }
 
-    header.masthead .post-heading .subheading {
+    header.masthead .project-heading .subheading {
         font-size: 30px
     }
 }
 
-.post-preview>a {
+.project-preview>a {
     color: #212529
 }
 
-.post-preview>a:focus,
-.post-preview>a:hover {
+.project-preview>a:focus,
+.project-preview>a:hover {
     text-decoration: none;
     color: #0085a1
 }
 
-.post-preview>a>.post-title {
+.project-preview>a>.project-title {
     font-size: 30px;
     margin-top: 30px;
     margin-bottom: 10px
 }
 
-.post-preview>a>.post-subtitle {
+.project-preview>a>.project-description {
     font-weight: 300;
     margin: 0 0 10px
 }
 
-.post-preview>.post-meta {
+.project-preview>.project-meta {
     font-size: 18px;
     font-style: italic;
     margin-top: 0;
     color: #868e96
 }
 
-.post-preview>.post-meta>a {
+.project-preview>.project-meta>a {
     text-decoration: none;
     color: #212529
 }
 
-.post-preview>.post-meta>a:focus,
-.post-preview>.post-meta>a:hover {
+.project-preview>.project-meta>a:focus,
+.project-preview>.project-meta>a:hover {
     text-decoration: underline;
     color: #0085a1
 }
 
 @media only screen and (min-width:768px) {
-    .post-preview>a>.post-title {
+    .project-preview>a>.project-title {
         font-size: 36px
     }
 }
@@ -338,7 +346,7 @@ header.masthead .post-heading .meta a {
     position: relative;
     margin-bottom: 0;
     padding-bottom: .5em;
-    border-bottom: 1px solid #dee2e6
+    border-bottom: 0.5px solid #868e96
 }
 
 .floating-label-form-group input,
@@ -353,13 +361,21 @@ header.masthead .post-heading .meta a {
     background: 0 0;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-    font-family: Lora, 'Times New Roman', serif
+    font-family: 'Open Sans',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif
 }
 
 .floating-label-form-group input::-webkit-input-placeholder,
 .floating-label-form-group textarea::-webkit-input-placeholder {
     color: #868e96;
-    font-family: Lora, 'Times New Roman', serif
+    font-family: 'Open Sans',
+    'Helvetica Neue',
+    Helvetica,
+    Arial,
+    sans-serif
 }
 
 .floating-label-form-group label {
@@ -387,7 +403,7 @@ header.masthead .post-heading .meta a {
 }
 
 .floating-label-form-group-with-focus label {
-    color:yellow
+    color:#868e96
 }
 
 form .form-group:first-child .floating-label-form-group {
@@ -415,7 +431,7 @@ footer .copyright {
     padding: 15px 25px;
     letter-spacing: 1px;
     text-transform: uppercase;
-    border-radius: 0;
+    border-radius: 50px;
     font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 

@@ -1,38 +1,82 @@
 const express = require('express')
-const path= require('path') //allows for the path.resolve method 
 const expressEdge = require('express-edge')
-const app = express()
+const app = new express()
+const edge = require('edge.js')
+const storeProject = require('./middleware/storeProject')
 const port = 3000
 const mongoose = require('mongoose')
-const bodyParser=require('body-parser')
+const bodyParser = require('body-parser')
+const fileUpload = require('express-fileupload')
+const newProjectController = require('./controllers/newProject')
+const homePageController = require('./controllers/homePage')
+const storeProjectController = require('./controllers/storeProject')
+const getProjectController = require('./controllers/getProject')
+const newUserController = require('./controllers/newUser')
+const storeUserController = require('./controllers/storeUser')
+const loginController = require('./controllers/login')
+const loginUserController = require('./controllers/loginUser')
+const expressSession = require('express-session')
+const connectMongo = require('connect-mongo')
+const mongoStore = connectMongo(expressSession)
+const redirectIfAuthenticated = require('./middleware/redirectIfAuthenticated')
+const logoutController = require('./controllers/logout')
 
+
+const dbConfig = require('./config/dbConfig.js')
+mongoose.connect(dbConfig.url, {
+    useNewUrlParser: true
+})
+
+
+//const auth = require('./middleware/auth')
+
+
+
+
+app.use(fileUpload())
 app.use(express.static('public'))
 app.use(expressEdge)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
+app.use(expressSession({
+    secret:'secret',
+    store:new mongoStore({
+        mongooseConnection:mongoose.connection
+    })
+}))
+
 app.set('views', `${__dirname}/views`)
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
+app.use('*', (req, res, next) => {
+    edge.global('auth', req.session.userId)
 
-const Project = require('./database/models/Project')
-
-mongoose.connect('mongodb://localhost/rwrdr')
-
-app.get('/', async (req,res)=>{
-
-const myProjects = await Project.find({})
-    console.log(myProjects)
-    res.render('index', {
-        myProjects
-    })
+    next()
 })
 
-app.post('/projects/store',(req, res)=>{
-    console.log(req.body)
-    res.redirect('/')
+app.get('/', homePageController)
 
-})
+app.get('/auth/register', redirectIfAuthenticated, newUserController)
 
-app.get('/about', (req,res)=>{
+app.post('/users/register',redirectIfAuthenticated, storeUserController)
+
+app.get('/auth/login', redirectIfAuthenticated, loginController)
+
+app.post('/users/login', redirectIfAuthenticated, loginUserController)
+
+app.get('/projects/new',  newProjectController) // <-- can't pipe auth
+
+app.post('/projects/store',  storeProject, storeProjectController)
+
+app.get('/projects/:id', getProjectController)
+
+app.get('/auth/logout', logoutController)
+
+app.use((req,res)=> res.render('404'))
+
+
+app.get('/about', (req, res) => {
     res.render('about')
 })
 
@@ -40,19 +84,13 @@ app.get('/404', (req, res) => {
     res.render('404')
 })
 
-app.get('/projects', (req, res) => {
-    res.render('projects')
-})
-
 app.get('/contact', (req, res) => {
     res.render('contact')
 })
 
-app.get('/new-project', (req, res) => {
-    res.render('new-project')
-})
 
-app.listen(3000, ()=>{
+
+app.listen(3000, () => {
     console.log(`Going Smoothly on port ${port}`)
 })
 
@@ -109,6 +147,6 @@ app.listen(3000, ()=>{
 //         res.writeHead(404);
 //         res.end(errorPage)
 //     }
-    
-    
+
+
 // });
