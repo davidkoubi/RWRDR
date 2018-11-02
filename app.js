@@ -18,8 +18,6 @@ mongoose.connect(dbConfig.url, {
 })
 
 
-//const auth = require('./middleware/auth')
-
 app.use(fileUpload())
 app.use(express.static('public'))
 app.use(expressEdge)
@@ -36,8 +34,8 @@ app.use(expressSession({
 
 app.set('views', `${__dirname}/views`)
 
-require('./routes/authRoute')(app)
 require('./routes/projectRoute')(app)
+require('./routes/authRoute')(app)
 
 app.use('*', (req, res, next) => {
     edge.global('auth', req.session.userId)
@@ -57,13 +55,6 @@ app.get('/about', (req, res) => {
 app.get('/404', (req, res) => {
     res.render('404')
 })
-
-
-
-// app.get('/contact', (req, res) => {
-//     res.render('contact')
-// })
-
 
 
 app.listen(3000, () => {
