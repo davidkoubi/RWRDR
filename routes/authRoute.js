@@ -1,6 +1,7 @@
 module.exports = (app) => {
     const auth = require('../controllers/auth.controller');
     const redirectIfAuthenticated = require('../middleware/redirectIfAuthenticated')
+    // const auth = require('../middleware/auth')
 
     app.get('/auth/register', redirectIfAuthenticated, auth.newUser)
 
